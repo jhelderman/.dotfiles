@@ -128,8 +128,12 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# aliases
 alias g="git"
 alias gs="git status"
 alias gc="git commit"
 alias ga="git add"
+
+# behave like vi
+bindkey -v
 
