@@ -1,4 +1,4 @@
-COMPONENTS=zsh tmux
+COMPONENTS=zsh tmux vim
 ROOT=$(shell pwd)
 
 all:
