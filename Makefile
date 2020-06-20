@@ -13,3 +13,7 @@ zsh: .zshrc
 tmux: .tmux.conf
 	rm ~/.tmux.conf 2> /dev/null | true
 	ln -s $(ROOT)/.tmux.conf ~/.tmux.conf
+
+vim: .vimrc
+	rm ~/.vimrc 2> /dev/null | true
+	ln -s $(ROOT)/.vimrc ~/.vimrc
