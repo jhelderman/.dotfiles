@@ -1,4 +1,4 @@
-COMPONENTS=zsh
+COMPONENTS=zsh tmux
 ROOT=$(shell pwd)
 
 all:
@@ -6,6 +6,10 @@ all:
 .PHONY: install 
 install: $(COMPONENTS)
 
-zsh:
-	rm ~/.zshrc 2> /dev/null
+zsh: .zshrc
+	rm ~/.zshrc 2> /dev/null | true
 	ln -s $(ROOT)/.zshrc ~/.zshrc
+
+tmux: .tmux.conf
+	rm ~/.tmux.conf 2> /dev/null | true
+	ln -s $(ROOT)/.tmux.conf ~/.tmux.conf
