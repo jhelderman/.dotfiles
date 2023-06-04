@@ -17,3 +17,8 @@ tmux: .tmux.conf
 vim: .vimrc
 	rm ~/.vimrc 2> /dev/null | true
 	ln -s $(ROOT)/.vimrc ~/.vimrc
+
+.PHONY: nvim
+nvim:
+	rm -rf ~/.config/nvim 2> /dev/null | true
+	ln -s $(ROOT)/nvim ~/.config/nvim
