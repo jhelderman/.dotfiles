@@ -193,6 +193,9 @@ require('lazy').setup({
   {
     'ThePrimeagen/harpoon'
   },
+  {
+    'jiangmiao/auto-pairs'
+  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -545,6 +548,15 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+require("harpoon").setup({
+})
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+vim.keymap.set('n', '<leader>ha', mark.add_file, { desc = '[H]arpoon [A]dd file' })
+vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu, { desc = 'Harpoon Toggle Quick Menu' })
+-- vim.keymap.set('n', '<C-h>', ui.nav_file(0), { desc = 'Harpoon Navigate to file 0' })
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
