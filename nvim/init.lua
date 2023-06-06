@@ -196,6 +196,9 @@ require('lazy').setup({
   {
     'jiangmiao/auto-pairs'
   },
+  {'mfussenegger/nvim-dap'},
+  {'nvim-tree/nvim-tree.lua'},
+  {'nvim-tree/nvim-web-devicons'},
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -549,6 +552,7 @@ cmp.setup {
   },
 }
 
+-- harpoon
 require("harpoon").setup({
 })
 local mark = require("harpoon.mark")
@@ -557,6 +561,14 @@ vim.keymap.set('n', '<leader>ha', mark.add_file, { desc = '[H]arpoon [A]dd file'
 vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu, { desc = 'Harpoon Toggle Quick Menu' })
 -- vim.keymap.set('n', '<C-h>', ui.nav_file(0), { desc = 'Harpoon Navigate to file 0' })
 
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+local api = require("nvim-tree.api")
+vim.keymap.set('n','<leader>fe', "<cmd>:NvimTreeToggle<CR>", { desc = 'Toggle Nvim Tree' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
