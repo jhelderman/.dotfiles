@@ -566,6 +566,7 @@ vim.g.loaded_netrwPlugin = 1
 require("nvim-tree").setup()
 local api = require("nvim-tree.api")
 vim.keymap.set('n','<leader>fe', "<cmd>:NvimTreeToggle<CR>", { desc = 'Toggle Nvim Tree' })
+vim.keymap.set('n','<leader>fo', "<cmd>:NvimTreeFocus<CR>", { desc = 'Focus Nvim Tree' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
