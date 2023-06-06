@@ -193,9 +193,6 @@ require('lazy').setup({
   {
     'ThePrimeagen/harpoon'
   },
-  {
-    'jiangmiao/auto-pairs'
-  },
   {'mfussenegger/nvim-dap'},
   {'nvim-tree/nvim-tree.lua'},
   {'nvim-tree/nvim-web-devicons'},
