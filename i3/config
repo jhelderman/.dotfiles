@@ -185,6 +185,8 @@ bar {
         status_command i3status
 }
 
+# start the compositor
+exec picom &
 # set the wallpaper
 # path should be defined in shell environment
 # for this configuration this is defined in .profile
