@@ -3,4 +3,6 @@ opacity=0.9
 
 [font]
 normal={family="MesloLGM Nerd Font", style="Regular"}
+italic={family="MesloLGM Nerd Font", style="Italic"}
+bold={family="MesloLGM Nerd Font", style="Bold"}
 size=6.5
