@@ -10,6 +10,8 @@ install: $(COMPONENTS)
 zsh: .zshrc
 	rm ~/.zshrc 2> /dev/null | true
 	ln -s $(ROOT)/.zshrc ~/.zshrc
+	rm ~/.user-env.sh 2> /dev/null | true
+	ln -s $(ROOT)/.user-env.sh ~/.user-env.sh
 
 .PHONY: tmux
 tmux: .tmux.conf

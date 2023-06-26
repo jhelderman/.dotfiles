@@ -184,3 +184,8 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# set the wallpaper
+# path should be defined in shell environment
+# for this configuration this is defined in .profile
+exec_always feh --bg-fill $WALLPAPER_PATH
