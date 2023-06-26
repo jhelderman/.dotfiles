@@ -27,3 +27,23 @@ vim: .vimrc
 nvim:
 	rm -rf ~/.config/nvim 2> /dev/null | true
 	ln -s $(ROOT)/nvim ~/.config/nvim
+
+
+.PHONY: picom
+picom:
+	rm ~/.config/picom 2> /dev/null | true
+	ln -s $(ROOT)/picom ~/.config/picom
+
+
+.PHONY: alacritty
+alacritty:
+	cd deps/alacritty && \
+		cargo build --release && \
+		sudo cp target/release/alacritty /usr/local/bin
+	rm ~/.config/alacritty 2> /dev/null | true
+	ln -s $(ROOT)/alacritty ~/.config/alacritty
+
+.PHONY: ubuntu-deps
+ubuntu-deps:
+	# alacritty deps
+	sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
