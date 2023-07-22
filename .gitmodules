@@ -4,3 +4,6 @@
 [submodule "alacritty/themes"]
 	path = alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
+[submodule "deps/neovim"]
+	path = deps/neovim
+	url = https://github.com/neovim/neovim
