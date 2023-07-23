@@ -197,6 +197,7 @@ require('lazy').setup({
   {'mfussenegger/nvim-dap'},
   {'nvim-tree/nvim-tree.lua'},
   {'nvim-tree/nvim-web-devicons'},
+  {'christoomey/vim-tmux-navigator'},
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.

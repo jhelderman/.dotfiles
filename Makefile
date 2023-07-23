@@ -19,6 +19,8 @@ oh-my-zsh:
 
 .PHONY: tmux
 tmux: .tmux.conf
+	rm ~/.tmux 2> /dev/null | true
+	ln -s $(ROOT)/.tmux/ ~/.tmux
 	rm ~/.tmux.conf 2> /dev/null | true
 	ln -s $(ROOT)/.tmux.conf ~/.tmux.conf
 
