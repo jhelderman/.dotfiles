@@ -13,6 +13,10 @@ zsh: .zshrc
 	rm ~/.user-env.sh 2> /dev/null | true
 	ln -s $(ROOT)/.user-env.sh ~/.user-env.sh
 
+.PHONY: oh-my-zsh
+oh-my-zsh:
+	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 .PHONY: tmux
 tmux: .tmux.conf
 	rm ~/.tmux.conf 2> /dev/null | true
