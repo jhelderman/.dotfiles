@@ -573,3 +573,11 @@ vim.keymap.set('n','<leader>fo', "<cmd>:NvimTreeFocus<CR>", { desc = 'Focus Nvim
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- files
+vim.keymap.set('n', '<leader>fs', ':w<CR>', { desc = 'Save File' })
+vim.keymap.set('n', '<leader>fl', ':e<CR>', { desc = 'Load File' })
+
+-- formatting
+vim.keymap.set('n', '<leader>fr', ':silent exec "!rustfmt %"<CR>', { desc = 'Format file with rustfmt' })
+vim.keymap.set('n', '<leader>fp', ':silent exec "!black %"<CR>', { desc = 'Format file with black' })
