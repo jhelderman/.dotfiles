@@ -199,6 +199,7 @@ require('lazy').setup({
   {'nvim-tree/nvim-tree.lua'},
   {'nvim-tree/nvim-web-devicons'},
   {'christoomey/vim-tmux-navigator'},
+  {'psf/black'},
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -580,4 +581,5 @@ vim.keymap.set('n', '<leader>fl', ':e<CR>', { desc = 'Load File' })
 
 -- formatting
 vim.keymap.set('n', '<leader>fr', ':silent exec "!rustfmt %"<CR>', { desc = 'Format file with rustfmt' })
-vim.keymap.set('n', '<leader>fp', ':silent exec "!black %"<CR>', { desc = 'Format file with black' })
+vim.keymap.set('n', '<leader>fp', ':Black<CR>', { desc = 'Format file with black' })
+vim.keymap.set('n', '<leader>fj', ':silent exec "!cat % | jq . > %"<CR>', { desc = 'Format file with black' })
