@@ -16,6 +16,10 @@ zsh: .zshrc
 .PHONY: oh-my-zsh
 oh-my-zsh:
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	
+.PHONY: powerlevel10k
+powerlevel10k:
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 .PHONY: tmux
 tmux: .tmux.conf
@@ -72,3 +76,8 @@ ubuntu-deps:
 	# alacritty deps
 	sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 	pip3 install bumblebee-status
+
+.PHONY: mac-deps
+mac-deps:
+	brew install zsh curl cmake node wget ripgrep fzf fd ack yarn
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
