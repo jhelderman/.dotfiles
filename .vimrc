@@ -1,3 +1,27 @@
+call plug#begin()
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+" Plug 'ghifarit53/tokyonight-vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'itchyny/lightline.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'psf/black', { 'branch': 'stable' }
+Plug 'mattn/emmet-vim'
+Plug 'prettier/vim-prettier', {
+      \ 'do': 'yarn install --frozen-lockfile --production',
+        \ 'branch': 'release/0.x'
+  \ }
+Plug 'joshdick/onedark.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'honza/vim-snippets'
+Plug 'puremourning/vimspector'
+call plug#end()
+
+" basic settings
 set tabstop=4
 set softtabstop=4
 set expandtab
@@ -10,6 +34,8 @@ filetype indent plugin on
 set wildmenu
 set lazyredraw
 set showmatch
+set signcolumn=yes
+set noswapfile
 " Comments in Vimscript start with a `"`.
 
 " If you open this file in Vim, it'll be syntax highlighted for you.
@@ -75,24 +101,106 @@ set noerrorbells visualbell t_vb=
 " sometimes be convenient.
 set mouse+=a
 
-" Try to prevent bad habits like using the arrow keys for movement. This is
-" not the only possible bad habit. For example, holding down the h/j/k/l keys
-" for movement, rather than using more efficient movement commands, is also a
-" bad habit. The former is enforceable through a .vimrc, while we don't know
-" how to prevent the latter.
-" Do this in normal mode...
-nnoremap <Left>  :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up>    :echoe "Use k"<CR>
-nnoremap <Down>  :echoe "Use j"<CR>
-" ...and in insert mode
-inoremap <Left>  <ESC>:echoe "Use h"<CR>
-inoremap <Right> <ESC>:echoe "Use l"<CR>
-inoremap <Up>    <ESC>:echoe "Use k"<CR>
-inoremap <Down>  <ESC>:echoe "Use j"<CR>
-" ctrlp.vim
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-" ack.vim
-set runtimepath^=~/.vim/bundle/ack.vim
-" easymotion
-set runtimepath^=~/.vim/bundle/vim-easymotion
+" disable comment continuation because it's annoying
+set formatoptions-=cro
+
+" shortcuts
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+" movement
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" fzf
+nmap <leader><tab> <plug>(fzf-maps-n)
+nnoremap <leader>sf :Files<CR>
+nnoremap <leader>sg :Rg<CR>
+nnoremap <leader><leader> :Buffers<CR>
+" file I/O
+nnoremap <leader>fs :w<CR>
+nnoremap <leader>fl :e<CR>
+" util
+nnoremap <leader>so :so<CR>
+" NERDTree
+nnoremap <leader>fo :NERDTreeFocus<CR>
+nnoremap <leader>fe :NERDTreeToggle<CR>
+nnoremap <leader>fi :NERDTreeFind<CR>
+" black
+nnoremap <leader>fp :Black<CR>
+" vimspector
+nnoremap <leader>db <Plug>VimspectorToggleBreakpoint
+nnoremap <leader>dc <Plug>VimspectorContinue
+nnoremap <leader>dq <Plug>VimspectorStop
+nnoremap <leader>dn <Plug>VimspectorStepOver
+nnoremap <leader>ds <Plug>VimspectorStepInto
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+
+" color scheme
+set termguicolors
+if (has("autocmd") && !has("gui_running"))
+    augroup colorset
+        autocmd!
+        let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
+        autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
+    augroup END
+endif
+colorscheme onedark
+" hi Normal guibg=NONE ctermbg=NONE
+" hi NormalNC guibg=NONE ctermbg=NONE
+" hi NormalSB guibg=NONE ctermbg=NONE
+" hi NormalFloat guibg=NONE ctermbg=NONE
+hi Terminal guibg=NONE ctermbg=NONE
+
+" coc
+set encoding=utf-8
+set nobackup
+set nowritebackup
+set updatetime=300
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+            \ CheckBackspace() ? "\<Tab>" :
+                  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+      let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+if has('nvim')
+      inoremap <silent><expr> <c-space> coc#refresh()
+else
+      inoremap <silent><expr> <c-@> coc#refresh()
+endif
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+      if CocAction('hasProvider', 'hover')
+              call CocActionAsync('doHover')
+                else
+                        call feedkeys('K', 'in')
+                          endif
+endfunction
+nmap <leader>rn <Plug>(coc-rename)
+nnoremap <silent><nowait> <leader>ca  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <leader>ce  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent><nowait> <leader>cc  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent><nowait> <leader>co  :<C-u>CocList outline<cr>
+" Search workleader symbols
+nnoremap <silent><nowait> <leader>cs  :<C-u>CocList -I symbols<cr>
+" Do default action for next item
+nnoremap <silent><nowait> <leader>cj  :<C-u>CocNext<CR>
+" Do default action for previous item
+nnoremap <silent><nowait> <leader>ck  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent><nowait> <leader>cp  :<C-u>CocListResume<CR>
