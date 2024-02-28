@@ -3,3 +3,5 @@
 .tmux/plugins/tmux-sensible/
 .tmux/plugins/tokyo-night-tmux/
 .tmux/plugins/vim-tmux-navigator/
+
+nvim/plugin/
