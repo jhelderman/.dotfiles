@@ -31,6 +31,10 @@ return require('packer').startup(function(use)
     use 'nvim-tree/nvim-web-devicons'
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
+    use 'lewis6991/gitsigns.nvim'
+    use 'folke/todo-comments.nvim'
+    use { 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production' }
+    use 'vim-airline/vim-airline'
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
