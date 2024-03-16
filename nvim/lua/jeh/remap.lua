@@ -24,3 +24,6 @@ vim.keymap.set("n", "<leader>ck", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<leader>cj", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+vim.keymap.set("n", "<leader>h", ":bprevious<CR>")
+vim.keymap.set("n", "<leader>l", ":bnext<CR>")

@@ -5,6 +5,7 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    use 'craftzdog/solarized-osaka.nvim'
     use({
         'folke/tokyonight.nvim',
         config = function()
@@ -17,6 +18,7 @@ return require('packer').startup(function(use)
             vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
         end
     })
+    use 'folke/which-key.nvim'
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use 'nvim-treesitter/playground'
     use 'mbbill/undotree'
@@ -35,6 +37,7 @@ return require('packer').startup(function(use)
     use 'folke/todo-comments.nvim'
     use { 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production' }
     use 'vim-airline/vim-airline'
+    use 'vim-airline/vim-airline-themes'
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
