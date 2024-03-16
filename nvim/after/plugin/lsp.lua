@@ -27,7 +27,6 @@ vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, { desc = 'LSP go to type 
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'LSP list references' })
 vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { desc = 'LSP get signature help' })
 vim.keymap.set('n', 'rn', vim.lsp.buf.rename, { desc = 'LSP rename' })
-vim.keymap.set('n', '<leader>ft', vim.lsp.buf.format, { desc = 'LSP format' })
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP code action' })
 vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = 'Open diagnostic float' })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic' })
