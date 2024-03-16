@@ -16,6 +16,10 @@ return require('packer').startup(function(use)
             vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
             vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
             vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NvimTreeNormalFloat", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "none" })
+            vim.api.nvim_set_hl(0, "TroubleNormal", { bg = "none" })
         end
     })
     use 'folke/which-key.nvim'
@@ -56,4 +60,5 @@ return require('packer').startup(function(use)
         }
     }
     use 'stevearc/conform.nvim'
+    use 'folke/trouble.nvim'
 end)
