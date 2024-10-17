@@ -76,8 +76,19 @@ ubuntu-deps:
 	# alacritty deps
 	sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 	pip3 install bumblebee-status
+	
+
+deps/Python-3.11.10.tgz:
+	cd deps/ && wget https://www.python.org/ftp/python/3.11.10/Python-3.11.10.tgz
 
 .PHONY: mac-deps
-mac-deps:
+mac-deps: deps/Python-3.11.10.tgz
 	brew install zsh curl cmake node wget ripgrep fzf fd ack yarn
+	brew install pkg-config openssl@3 xz gdbm tcl-tk mpdecimal
+	cd deps/ && \
+		tar -xzf Python-3.11.10.tgz && \
+		cd Python-3.11.10 && \
+		GDBM_CFLAGS="-I$(brew --prefix gdbm)/include" GDBM_LIBS="-L$(brew --prefix gdbm)/lib -lgdbm" ./configure --prefix ~/.local --enable-optimizations --with-pydebug --with-openssl="$(brew --prefix openssl@3)" && \
+		make -j4 && \
+		make install
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

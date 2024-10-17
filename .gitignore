@@ -1,3 +1,5 @@
+*.tgz
+deps/Python-3.11.10/
 *.swp
 
 .tmux/plugins/tmux-sensible/

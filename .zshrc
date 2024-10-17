@@ -47,6 +47,8 @@ alias gs="git status"
 alias gc="git commit"
 alias ga="git add"
 
+alias activate_py311="source ~/.local/envs/py311/bin/activate"
+
 # behave like vi
 bindkey -v
 
