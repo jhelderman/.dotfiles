@@ -1,6 +1,6 @@
-vim.keymap.set("n", "<leader><leader>", vim.cmd.source)
-vim.keymap.set("n", "<leader>fs", ":w<CR>")
-vim.keymap.set("n", "<leader>fl", ":e<CR>")
+vim.keymap.set("n", "<leader>so", vim.cmd.source, { desc = "source file" })
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "write file" })
+vim.keymap.set("n", "<leader>fl", ":e<CR>", { desc = "reload file" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -13,8 +13,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({"n", "v"}, "<leader>y", [["*y]])
+vim.keymap.set("n", "<leader>Y", [["*Y]])
 
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
