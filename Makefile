@@ -35,7 +35,7 @@ vim: .vimrc
 
 .PHONY: nvim
 nvim:
-	cd deps/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
+	cd deps/neovim && make CMAKE_BUILD_TYPE=Release && sudo make install
 	rm -rf ~/.config/nvim 2> /dev/null | true
 	ln -s $(ROOT)/nvim ~/.config/nvim
 
