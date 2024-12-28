@@ -20,10 +20,19 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<leader>ck", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<leader>cj", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>h", ":bprevious<CR>")
 vim.keymap.set("n", "<leader>l", ":bnext<CR>")
+
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
+
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "go to declaration" })
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "go to implementation" })
+vim.keymap.set("n", "go", vim.lsp.buf.type_definition, { desc = "go to type definition" })
+vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { desc = "get signatrue help" })
+vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "open diagnostic float" })
