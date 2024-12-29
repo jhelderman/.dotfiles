@@ -3,6 +3,7 @@ local state = {
     buf = -1,
     win = -1,
   },
+  cmd = "",
 }
 
 local function create_floating_window(opts)
@@ -56,10 +57,30 @@ local run_python_script = function()
   vim.fn.feedkeys("a" .. cmd .. enter)
 end
 
+local run_command = function(cmd)
+  toggle_floating_terminal()
+  local enter = vim.api.nvim_replace_termcodes("<CR>", true, true, true)
+  vim.fn.feedkeys("a" .. cmd .. enter)
+end
+
+local update_command = function()
+  vim.ui.input({ prompt = "Command: ", default = state.cmd, completion = "shellcmdline" }, function(input)
+    if input ~= nil then
+      state.cmd = input
+    end
+  end)
+end
+
 -- create user commands
 vim.api.nvim_create_user_command("FloatingTerminal", toggle_floating_terminal, {})
 vim.api.nvim_create_user_command("RunPythonScript", run_python_script, {})
+vim.api.nvim_create_user_command("RunCommand", function()
+  run_command(state.cmd)
+end, {})
+vim.api.nvim_create_user_command("UpdateCommand", update_command, {})
 
 -- create keymaps
 vim.keymap.set({ "n", "t" }, "<leader>tt", "<Cmd>FloatingTerminal<CR>", { desc = "Toggle Floating Terminal" })
 vim.keymap.set("n", "<leader>tp", "<Cmd>RunPythonScript<CR>", { desc = "Run Python Script" })
+vim.keymap.set("n", "<leader>tu", "<Cmd>UpdateCommand<CR>", { desc = "Update Floating Terminal Set Command" })
+vim.keymap.set("n", "<leader>tr", "<Cmd>RunCommand<CR>", { desc = "Run Floating Terminal Set Command" })
