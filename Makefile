@@ -16,6 +16,11 @@ zsh: .zshrc
 .PHONY: oh-my-zsh
 oh-my-zsh:
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+.PHONY: zsh-plugins
+zsh-plugins:
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	
 .PHONY: powerlevel10k
 powerlevel10k:
