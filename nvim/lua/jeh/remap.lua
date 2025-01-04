@@ -30,9 +30,7 @@ vim.keymap.set("n", "<leader>l", ":bnext<CR>")
 
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
 
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "go to declaration" })
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "go to implementation" })
 vim.keymap.set("n", "go", vim.lsp.buf.type_definition, { desc = "go to type definition" })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { desc = "get signatrue help" })
-vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "open diagnostic float" })
