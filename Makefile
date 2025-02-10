@@ -38,6 +38,16 @@ vim: .vimrc
 	rm ~/.vimrc 2> /dev/null | true
 	ln -s $(ROOT)/.vimrc ~/.vimrc
 
+.PHONY: yabai
+yabai:
+	rm ~/.config/yabai 2> /dev/null | true
+	ln -s $(ROOT)/yabai ~/.config/yabai
+
+.PHONY: skhd
+skhd:
+	rm ~/.config/skhd 2> /dev/null | true
+	ln -s $(ROOT)/skhd ~/.config/skhd
+
 .PHONY: nvim
 nvim:
 	cd deps/neovim && make CMAKE_BUILD_TYPE=Release && sudo make install
