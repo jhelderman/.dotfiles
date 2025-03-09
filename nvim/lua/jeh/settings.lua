@@ -34,3 +34,5 @@ vim.opt.splitbelow = true
 vim.opt.cursorline = true
 
 vim.g.mapleader = " "
+
+vim.opt.conceallevel = 2
