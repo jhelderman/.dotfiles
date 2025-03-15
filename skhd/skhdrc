@@ -12,7 +12,7 @@ alt - down: yabai -m display --focus south
 
 # focus specific applications
 alt - t: yabai -m window --focus "$(yabai -m query --windows | jq 'map(select(.app == "Ghostty")) | .[0].id')"
-alt - b: yabai -m window --focus "$(yabai -m query --windows | jq 'map(select(.app == "Zen Browser")) | .[0].id')"
+alt - b: yabai -m window --focus "$(yabai -m query --windows | jq 'map(select(.app == "Zen")) | .[0].id')"
 alt - o: yabai -m window --focus "$(yabai -m query --windows | jq 'map(select(.app == "Obsidian")) | .[0].id')"
 alt - m: yabai -m window --focus "$(yabai -m query --windows | jq 'map(select(.app == "Mail")) | .[0].id')"
 alt - s: yabai -m window --focus "$(yabai -m query --windows | jq 'map(select(.app == "Spotify")) | .[0].id')"
