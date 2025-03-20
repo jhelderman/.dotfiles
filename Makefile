@@ -48,6 +48,11 @@ skhd:
 	rm ~/.config/skhd 2> /dev/null | true
 	ln -s $(ROOT)/skhd ~/.config/skhd
 
+.PHONY: aerospace
+aerospace:
+	rm ~/.config/aerospace 2> /dev/null | true
+	ln -s $(ROOT)/aerospace $(HOME)/.config/aerospace
+
 .PHONY: nvim
 nvim:
 	cd deps/neovim && make CMAKE_BUILD_TYPE=Release && sudo make install
@@ -100,6 +105,7 @@ deps/Python-3.11.10.tgz:
 mac-deps: deps/Python-3.11.10.tgz
 	brew install zsh curl cmake node wget ripgrep fzf fd ack yarn
 	brew install pkg-config openssl@3 xz gdbm tcl-tk mpdecimal
+	brew install --cask nikitabobko/tap/aerospace
 	cd deps/ && \
 		tar -xzf Python-3.11.10.tgz && \
 		cd Python-3.11.10 && \
