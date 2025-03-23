@@ -28,5 +28,7 @@ return {
     { "<leader>od", "<cmd>ObsidianToday<CR>", desc = "open daily note" },
     { "<leader>og", "<cmd>ObsidianSearch<CR>", desc = "grep obsidian files" },
     { "<leader>ox", "<cmd>ObsidianToggleCheckbox<CR>", desc = "toggle checkbox" },
+    { "<leader>on", "<cmd>ObsidianNew<CR>", desc = "new note" },
+    { "<leader>ot", "<cmd>ObsidianTags<CR>", desc = "new note" },
   },
 }
