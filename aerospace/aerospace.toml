@@ -244,3 +244,7 @@ run = 'move-node-to-workspace E'
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
 run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace D'
