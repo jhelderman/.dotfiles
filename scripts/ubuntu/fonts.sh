@@ -5,5 +5,5 @@ cd $HOME/.local/share/fonts
 if [ ! -f GeistMono.zip ]; then
     wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/GeistMono.zip
 fi
-unzip Meslo.zip -d .local/share/fonts
+unzip GeistMono.zip -d .local/share/fonts
 fc-cache -fv
