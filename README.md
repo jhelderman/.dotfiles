@@ -11,4 +11,6 @@ make macos
 # add deb-src to /etc/apt/sources.list or /etc/apt/sources.list.d/ubuntu.sources
 # prior to running this target
 make ubuntu
+# arch
+make arch
 ```
