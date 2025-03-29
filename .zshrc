@@ -58,6 +58,9 @@ alias ga="git add"
 
 alias activate_py311="source ~/.local/envs/py311/bin/activate"
 
+# paths
+export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin
+
 # behave like vi
 bindkey -v
 
