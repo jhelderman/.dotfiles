@@ -2,8 +2,8 @@
 deps/Python-3.11.10/
 *.swp
 
-.tmux/plugins/tmux-sensible/
-.tmux/plugins/tokyo-night-tmux/
-.tmux/plugins/vim-tmux-navigator/
+tmux/plugins/tmux-sensible/
+tmux/plugins/tokyo-night-tmux/
+tmux/plugins/tpm/
 
 nvim/lazy-lock.json
