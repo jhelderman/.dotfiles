@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+if [[ -x ".init-tmux" ]]; then
+    ./.init-tmux
+else
+    ~/.config/tmux/.init-tmux
+fi
+clear

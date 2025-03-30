@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+tmux renamew -t  0 editor
+tmux neww -n shell
+tmux selectw -t editor
+tmux send-keys -t editor "nvim" 

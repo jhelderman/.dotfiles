@@ -8,3 +8,7 @@ fi
 # install configuration
 rm $HOME/.config/tmux 2> /dev/null | true
 ln -s $repo_root/tmux/ $HOME/.config/tmux
+rm $HOME/.local/bin/init-tmux 2> /dev/null | true
+ln -s $repo_root/tmux-sessionizer/init-tmux $HOME/.local/bin/init-tmux
+rm $HOME/.local/bin/tmux-sessionizer 2> /dev/null | true
+ln -s $repo_root/tmux-sessionizer/tmux-sessionizer $HOME/.local/bin/tmux-sessionizer
