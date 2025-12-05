@@ -1,0 +1,24 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: "Usage: task [OS]"
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+  macos:
+    cmds:
+      - ./run.sh -f macos
+  ubuntu:
+    cmds:
+      - ./run.sh -f ubuntu
+  arch:
+    cmds:
+      - ./run.sh -f arch
+  omarchy:
+    cmds:
+      - ./run.sh -f omarchy

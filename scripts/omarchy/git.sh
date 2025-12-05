@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-brew install git
+repo_root=$(dirname $(dirname $(cd $(dirname "${BASH_SOURCE[0]}") && pwd)))
 # global git ignore
 git config --global core.excludesfile $repo_root/.gitignore

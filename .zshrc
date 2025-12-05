@@ -66,3 +66,5 @@ bindkey -v
 
 source ~/.profile
 source ~/.user-env.sh
+
+. "$HOME/.local/share/../bin/env"

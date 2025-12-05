@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-repo_root=$(dirname $(dirname $(cd $(dirname "${BASH_SOURCE[0]}") && pwd)))
 # dependencies
 brew install ninja cmake gettext curl
 # get the code
@@ -13,7 +12,3 @@ git checkout v0.11.4
 make CMAKE_BUILD_TYPE=RelWithDebInfo --prefix=$HOME/.local
 # install binaries
 make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$HOME/.local install
-# install configuration
-mkdir -p $HOME/.config 2>/dev/null | true
-rm -rf $HOME/.config/nvim 2>/dev/null | true
-ln -s $repo_root/nvim $HOME/.config/nvim

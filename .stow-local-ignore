@@ -1,0 +1,9 @@
+git
+scripts
+tmux-sessionizer
+Makefile
+run.sh
+\.git
+\.gitignore
+\.gitmodules
+README.md

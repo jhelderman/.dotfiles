@@ -6,11 +6,13 @@ various operating systems. The following commands are available:
 
 ```bash
 # macos
-make macos
+task macos
 # ubuntu
 # add deb-src to /etc/apt/sources.list or /etc/apt/sources.list.d/ubuntu.sources
 # prior to running this target
-make ubuntu
+task ubuntu
 # arch
-make arch
+task arch
+# omarchy
+task omarchy
 ```

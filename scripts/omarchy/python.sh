@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-sudo pacman -S python3
 curl -LsSf https://astral.sh/uv/install.sh | sh

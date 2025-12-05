@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
-repo_root=$(dirname $(dirname $(cd $(dirname "${BASH_SOURCE[0]}") && pwd)))
 brew install zsh
-# install configuration
-rm $HOME/.zshrc 2> /dev/null | true
-ln -s $repo_root/.zshrc $HOME/.zshrc
-rm $HOME/.user-env.sh 2> /dev/null | true
-ln -s $repo_root/.user-env.sh $HOME/.user-env.sh
 # oh-my-zsh
 if [ ! -d $HOME/.oh-my-zsh ]; then
     sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
