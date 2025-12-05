@@ -2,6 +2,6 @@
 deps/Python-3.11.10/
 *.swp
 
-tmux/plugins/
+.config/tmux/plugins/
 
 nvim/lazy-lock.json
