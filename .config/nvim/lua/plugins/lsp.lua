@@ -4,7 +4,9 @@ return {
     opts = {
       servers = {
         lua_ls = {},
-        pyright = {},
+        pyright = { mason = false },
+        ruff = {},
+        ty = {},
         rust_analyzer = {},
         gopls = {},
       },
